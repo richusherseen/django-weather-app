@@ -46,3 +46,8 @@ def index(request):
     context = {'weather_data' : weather_data,'form' : form}
 
     return render(request,'weather.html',context)
+
+def delete_city(request,city_name):
+    City.objects.get(name = city_name).delete()
+    return redirect('index')
+
